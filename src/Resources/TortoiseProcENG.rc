@@ -26,6 +26,7 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 
 IDR_DOWNLOAD            AVI                     "download.avi"
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Icon
@@ -34,74 +35,143 @@ IDR_DOWNLOAD            AVI                     "download.avi"
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "Tortoise.ico"
+
 IDI_DRIVES              ICON                    "Drives.ico"
+
 IDI_PROXY               ICON                    "proxy.ico"
+
 IDI_MISC                ICON                    "misc.ico"
+
 IDI_SET_OVERLAYS        ICON                    "Overlays.ico"
+
 IDI_GENERAL             ICON                    "general.ico"
+
 IDI_LOOKANDFEEL         ICON                    "lookandfeel.ico"
+
 IDI_ICONSET             ICON                    "iconset.ico"
+
 IDI_DIALOGS             ICON                    "dialogs.ico"
+
 IDI_ACTIONADDED         ICON                    "actionadded.ico"
+
 IDI_ACTIONDELETED       ICON                    "actiondeleted.ico"
+
 IDI_ACTIONMODIFIED      ICON                    "actionmodified.ico"
+
 IDI_ACTIONREPLACED      ICON                    "actionreplaced.ico"
+
 IDI_ACTIONCONFLICTED    ICON                    "actionconflicted.ico"
+
 IDI_SAVEDDATA           ICON                    "saveddata.ico"
+
 IDI_GRAPHBAR            ICON                    "graph-bar.ico"
+
 IDI_GRAPHBARSTACKED     ICON                    "graph-bar-stacked.ico"
+
 IDI_GRAPHLINE           ICON                    "graph-line.ico"
+
 IDI_GRAPHLINESTACKED    ICON                    "graph-line-stacked.ico"
+
 IDI_GRAPHPIE            ICON                    "graph-pie.ico"
+
 IDI_SWITCHLEFTRIGHT     ICON                    "switch.ico"
+
 IDI_HOOK                ICON                    "hook.ico"
+
 IDI_REPOBROWSER_BKG     ICON                    "RepoBrowserBackground.ico"
+
 IDI_ADD_BKG             ICON                    "AddBackground.ico"
+
 IDI_RESOLVE_BKG         ICON                    "ResolveBackground.ico"
+
 IDI_REVERT_BKG          ICON                    "RevertBackground.ico"
+
 IDI_COMMIT_BKG          ICON                    "CommitBackground.ico"
+
 IDI_CFM_BKG             ICON                    "CFMBackground.ico"
+
 IDI_CANCELNORMAL        ICON                    "cancel-normal.ico"
+
 IDI_CANCELPRESSED       ICON                    "cancel-pressed.ico"
+
 IDI_LOGFILTER           ICON                    "logfilter.ico"
+
 IDI_FILTEREDIT          ICON                    "filteredit.ico"
+
 IDI_IMPORTPATHCES_BKG   ICON                    "ImportPatchesBackground.ico"
+
 IDI_SWITCH_BKG          ICON                    "SwitchBackground.ico"
+
 IDI_TORTOISEBLAME       ICON                    "TortoiseGitBlame.ico"
+
 IDI_BUGTRAQ             ICON                    "bugtraq.ico"
+
 IDI_REFRESH             ICON                    "refresh.ico"
+
 IDI_SAVE                ICON                    "save.ico"
+
 IDI_SAVEAS              ICON                    "saveas.ico"
+
 IDI_EXPLORER            ICON                    "explorer.ico"
+
 IDI_OPEN                ICON                    "open.ico"
+
 IDI_GITCONFIG           ICON                    "gitconfig.ico"
+
 IDI_GITREMOTE           ICON                    "gitremote.ico"
+
 IDI_ACTIONFETCHING      ICON                    "actionfetching.ico"
+
 IDI_LIBRARY             ICON                    "Library.ico"
+
 IDI_RESTORE             ICON                    "restore.ico"
+
 IDI_RESTOREOVL          ICON                    "restoreovl.ico"
+
 IDI_JUMPUP              ICON                    "jumpup.ico"
+
 IDI_JUMPDOWN            ICON                    "jumpdown.ico"
+
 IDI_UPDATE_BKG          ICON                    "UpdateBackground.ico"
+
 IDI_GITCREDENTIAL       ICON                    "gitcredential.ico"
+
 IDI_EXTERNALOVL         ICON                    "externalovl.ico"
+
 IDI_MERGEACTIVE         ICON                    "menumerge.ico"
+
 IDI_EXECUTABLEOVL       ICON                    "executableovl.ico"
+
 IDI_SYMLINKOVL          ICON                    "symlinkovl.ico"
+
 IDI_SPELL               ICON                    "spell.ico"
+
 IDI_FILE                ICON                    "file.ico"
+
 IDI_CODE                ICON                    "code.ico"
+
 IDI_SNIPPET             ICON                    "snippet.ico"
+
 IDI_CERTCHECK           ICON                    "certcheck.ico"
+
 IDI_TORTOISEUDIFF       ICON                    "..\\TortoiseUDiff\\TortoiseUDiff.ico"
+
 IDI_LIBRARY_WIN10       ICON                    "library-win10.ico"
+
 IDI_RESET               ICON                    "reset.ico"
+
 IDI_NOTEPAD             ICON                    "notepad.ico"
+
 IDI_GITFOLDER           ICON                    "gitfolder.ico"
+
 IDI_LOCK_BKG            ICON                    "LockBackground.ico"
+
 IDI_UNLOCK_BKG          ICON                    "UnlockBackground.ico"
+
 IDI_INDETERMINATE       ICON                    "indeterminate.ico"
+
 IDI_CHERRYPICK          ICON                    "cherry-pick.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -109,8 +179,11 @@ IDI_CHERRYPICK          ICON                    "cherry-pick.ico"
 //
 
 IDB_LOGOFLIPPED         BITMAP                  "tortoisegit_logoflipped.bmp"
+
 IDR_REVGRAPHBAR         BITMAP                  "revgraphbar.bmp"
+
 IDR_REVGRAPHGLYPHS      BITMAP                  "revgraphglyphs.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -118,13 +191,15 @@ IDR_REVGRAPHGLYPHS      BITMAP                  "revgraphglyphs.bmp"
 //
 
 IDC_PANCUR              CURSOR                  "pan.cur"
+
 IDC_PANCURDOWN          CURSOR                  "pandown.cur"
+
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
@@ -136,6 +211,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 //
 
 IDB_BITMAP_REFTYPE      BITMAP                  "reftype.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2323,6 +2399,15 @@ BEGIN
     PUSHBUTTON      "Help",IDHELP,293,113,50,14
 END
 
+IDD_REVGRAPH_BRANCH_COLORS DIALOGEX 0, 0, 303, 108
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Revision Graph Filter"
+FONT 9, "Segoe UI", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,103,87,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,157,87,50,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3336,6 +3421,12 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 127
     END
+
+    IDD_REVGRAPH_BRANCH_COLORS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 293
+        BOTTOMMARGIN, 101
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -3387,6 +3478,8 @@ BEGIN
         MENUITEM "Fit graph",                   ID_VIEW_ZOOMALL
         MENUITEM SEPARATOR
         MENUITEM "&Filter",                     ID_VIEW_FILTER
+        MENUITEM "Branch colors",               ID_VIEW_BRANCH_COLORS
+        MENUITEM "Configure branch colors",     ID_VIEW_CONFIGURE_BRANCH_COLORS
         MENUITEM SEPARATOR
         MENUITEM "Show Ove&rview",              ID_VIEW_SHOWOVERVIEW
         MENUITEM "Show branchings and &merges", ID_VIEW_SHOWBRANCHINGSANDMERGES
@@ -3471,6 +3564,17 @@ BEGIN
     VK_F3,          IDM_FINDPREV,           VIRTKEY, SHIFT, NOINVERT
     "F",            IDM_SHOWFINDBAR,        VIRTKEY, CONTROL, NOINVERT
     VK_ESCAPE,      IDM_FINDEXIT,           VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_REVGRAPH_BRANCH_COLORS AFX_DIALOG_LAYOUT
+BEGIN
+    0
 END
 
 
@@ -5207,7 +5311,7 @@ BEGIN
     IDS_VIEWPATCH           "View Patch"
 END
 
-#endif    // English (U.S.) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

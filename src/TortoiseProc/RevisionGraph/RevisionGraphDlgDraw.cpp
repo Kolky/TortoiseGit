@@ -1,7 +1,7 @@
 ﻿// TortoiseGit - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2011, 2015 - TortoiseSVN
-// Copyright (C) 2012-2013, 2015-2022 - TortoiseGit
+// Copyright (C) 2012-2013, 2015-2023 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,6 +37,58 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 using namespace Gdiplus;
+
+//** TEMP
+
+CString BranchNameBugFix = _T("origin/bugfix");
+CString BranchNameFeature = _T("origin/feature");
+CString BranchNameTask = _T("origin/task");
+
+const CString GetBranchName(const CString& shortname, bool showBranchColors)
+{
+	if (!showBranchColors)
+	{
+		return shortname;
+	}
+
+	if (shortname.Left(BranchNameBugFix.GetLength()).Compare(BranchNameBugFix) == 0)
+	{
+		return shortname.Mid(BranchNameBugFix.GetLength() + 1);
+	}
+	else if (shortname.Left(BranchNameFeature.GetLength()).Compare(BranchNameFeature) == 0)
+	{
+		return shortname.Mid(BranchNameFeature.GetLength() + 1);
+	}
+	else if (shortname.Left(BranchNameTask.GetLength()).Compare(BranchNameTask) == 0)
+	{
+		return shortname.Mid(BranchNameTask.GetLength() + 1);
+	}
+	return shortname;
+}
+
+const Gdiplus::Color* GetBranchColor(const CString& shortname, const Gdiplus::Color& branchColor, bool showBranchColors)
+{
+	if (!showBranchColors)
+	{
+		return new Gdiplus::Color(branchColor.GetValue());
+	}
+
+	if (shortname.Left(BranchNameBugFix.GetLength()).Compare(BranchNameBugFix) == 0)
+	{
+		return new Gdiplus::Color((Gdiplus::ARGB)Gdiplus::Color::Cyan);
+	}
+	else if (shortname.Left(BranchNameFeature.GetLength()).Compare(BranchNameFeature) == 0)
+	{
+		return new Gdiplus::Color((Gdiplus::ARGB)Gdiplus::Color::Purple);
+	}
+	else if (shortname.Left(BranchNameTask.GetLength()).Compare(BranchNameTask) == 0)
+	{
+		return new Gdiplus::Color((Gdiplus::ARGB)Gdiplus::Color::Purple);
+	}
+
+	return new Gdiplus::Color(branchColor.GetValue());
+}
+//** TEMP
 
 Color GetColorFromSysColor(int nIndex)
 {
@@ -460,13 +512,17 @@ void CRevisionGraphWnd::DrawNode(GraphicsDevice& graphics, AllColorsAndBrushes& 
 	rect.Width = noderect.Width;
 	rect.Height = static_cast<REAL>(height);
 
+
+	Gdiplus::SolidBrush fillBrush(*GetBranchColor(shortname, colors->brightColor.GetValue(), GetShowBranchColors()));
+	CString textToDraw = GetBranchName(shortname, GetShowBranchColors());
+
 	int mask = (line == 0) ? ROUND_UP : 0;
 	mask |= (line == lines - 1) ? ROUND_DOWN : 0;
-	DrawRoundedRect(graphics, colors->background, 1, &colors->pen, colors->brightColor, &colors->brush, rect, mask);
+	DrawRoundedRect(graphics, colors->background, 1, &colors->pen, colors->brightColor, &fillBrush, rect, mask);
 
 	if (graphics.graphics)
 	{
-		graphics.graphics->DrawString(shortname, shortname.GetLength(),
+		graphics.graphics->DrawString(textToDraw, textToDraw.GetLength(),
 									  &font,
 									  Gdiplus::PointF(static_cast<REAL>(noderect.X + this->GetLeftRightMargin() * m_fZoomFactor),
 													  static_cast<REAL>(noderect.Y + this->GetTopBottomMargin() * m_fZoomFactor + height * line)),
@@ -702,7 +758,9 @@ void CRevisionGraphWnd::SetNodeRect(GraphicsDevice& graphics, Gdiplus::Font& fon
 	{
 		lines = static_cast<int>((*it).second.size());
 		if (graphics.graphics)
-			std::for_each((*it).second.cbegin(), (*it).second.cend(), [&](const auto& refName) { MeasureTextLength(graphics, font, CGit::GetShortName(refName, nullptr), xmax, ymax); });
+			std::for_each((*it).second.cbegin(), (*it).second.cend(), [&](const auto& refName) {
+				MeasureTextLength(graphics, font, GetBranchName(CGit::GetShortName(refName, nullptr), GetShowBranchColors()), xmax, ymax);
+			});
 	}
 	const auto fnMeasureSuperRepoText = [&](const CGitHash& superRepoHash, const CString& label) {
 		if (rev != superRepoHash)

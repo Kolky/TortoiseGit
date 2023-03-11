@@ -144,6 +144,7 @@
     <ClCompile Include="Commands\LFSCommands.cpp" />
     <ClCompile Include="CommitIsOnRefsDlg.cpp" />
     <ClCompile Include="CreateChangelistDlg.cpp" />
+    <ClCompile Include="RevisionGraph\RevGraphBranchColorDlg.cpp" />
     <ClCompile Include="DiffLinesForStaging.cpp" />
     <ClCompile Include="FilterHelper.cpp" />
     <ClCompile Include="FindBar.cpp" />
@@ -456,6 +457,7 @@
     <ClInclude Include="CommitIsOnRefsDlg.h" />
     <ClInclude Include="ConfigureGitExe.h" />
     <ClInclude Include="CreateChangelistDlg.h" />
+    <ClInclude Include="RevisionGraph\RevGraphBranchColorDlg.h" />
     <ClInclude Include="EnableStagingTypes.h" />
     <ClInclude Include="DiffLinesForStaging.h" />
     <ClInclude Include="FilterHelper.h" />

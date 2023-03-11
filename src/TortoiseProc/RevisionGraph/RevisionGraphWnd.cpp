@@ -1,7 +1,7 @@
 ﻿// TortoiseGit - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2012, 2015 - TortoiseSVN
-// Copyright (C) 2012-2022 - TortoiseGit
+// Copyright (C) 2012-2023 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -94,6 +94,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	, m_ptRubberEnd(0,0)
 	, m_ptMoveCanvas(0,0)
 	, m_bShowOverview(false)
+	, m_bShowBranchColors(false)
 	, m_parent(nullptr)
 	, m_hoverIndex(nullptr)
 	, m_hoverGlyphs (0)
@@ -1156,7 +1157,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 
 	STRING_VECTOR branchNames;
 	STRING_VECTOR allRefNames;
-	STRING_VECTOR remoteBranchNames; 
+	STRING_VECTOR remoteBranchNames;
 	if (m_SelectedEntry1 && (m_SelectedEntry2 == nullptr))
 	{
 		AppendMenu(popup, IDS_LOG_BROWSEREPO, ID_BROWSEREPO);

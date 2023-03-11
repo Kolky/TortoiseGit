@@ -1,4 +1,4 @@
-//{{NO_DEPENDENCIES}}
+﻿//{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
 // Used by d:\TortoiseGit\src\Resources\TortoiseProcENG.rc
 //
@@ -2124,6 +2124,8 @@
 #define ID_STAGING_STAGESELECTEDHUNKS   32878
 #define ID_UNSTAGING_UNSTAGESELECTEDLINES 32879
 #define ID_UNSTAGING_UNSTAGESELECTEDHUNKS 32880
+#define ID_VIEW_BRANCH_COLORS           32881
+#define ID_VIEW_CONFIGURE_BRANCH_COLORS 32882
 #define IDS_ERR_CHANGELIST_LOAD         32900
 #define IDS_ERR_CHANGELIST_SAVE         32901
 #define IDS_PROGRS_TITLE_LFS_LOCK       32920
@@ -2134,13 +2136,14 @@
 #define IDI_UNLOCK_BKG                  32925
 #define IDC_LOCKSLIST                   32926
 #define IDC_LFS_UNLOCK                  32927
+#define IDD_REVGRAPH_BRANCH_COLORS      32928
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        370
-#define _APS_NEXT_COMMAND_VALUE         32881
+#define _APS_NEXT_RESOURCE_VALUE        371
+#define _APS_NEXT_COMMAND_VALUE         32883
 #define _APS_NEXT_CONTROL_VALUE         1860
 #define _APS_NEXT_SYMED_VALUE           201
 #endif

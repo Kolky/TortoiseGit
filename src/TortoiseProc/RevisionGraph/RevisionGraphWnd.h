@@ -1,7 +1,7 @@
 ﻿// TortoiseGit - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2011 - TortoiseSVN
-// Copyright (C) 2012-2019, 2022 - TortoiseGit
+// Copyright (C) 2012-2019, 2023 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -180,6 +180,8 @@ public:
 
 	bool			GetShowOverview() const;
 	void			SetShowOverview (bool value);
+	bool			GetShowBranchColors() const;
+	void			SetShowBranchColors(bool value);
 
 	void			ScrollTo(int i, bool select);
 
@@ -201,6 +203,7 @@ protected:
 	CRect			m_OverviewRect;
 
 	bool			m_bShowOverview;
+	bool			m_bShowBranchColors;
 
 	CRevisionGraphDlg *m_parent;
 

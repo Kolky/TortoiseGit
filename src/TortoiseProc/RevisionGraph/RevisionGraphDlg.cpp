@@ -1,7 +1,7 @@
 ﻿// TortoiseGit - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2012, 2018, 2021 - TortoiseSVN
-// Copyright (C) 2012-2016, 2018-2020 - TortoiseGit
+// Copyright (C) 2012-2016, 2018-2023 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,6 +27,7 @@
 #include "UnicodeUtils.h"
 #include "TGitPath.h"
 #include "RevGraphFilterDlg.h"
+#include "RevGraphBranchColorDlg.h"
 #include "DPIAware.h"
 #include "LogDlgFilter.h"
 #include "GitLogList.h"
@@ -116,6 +117,8 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_VIEW_ARROW_POINT_TO_MERGES, OnViewArrowPointToMerges)
 	ON_COMMAND(ID_FIND, OnFind)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage)
+	ON_COMMAND(ID_VIEW_BRANCH_COLORS, OnBranchColors)
+	ON_COMMAND(ID_VIEW_CONFIGURE_BRANCH_COLORS, OnConfigureBranchColors)
 END_MESSAGE_MAP()
 
 BOOL CRevisionGraphDlg::InitializeToolbar()
@@ -273,6 +276,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 		m_pTaskbarList = nullptr;
 
 	m_Graph.SetShowOverview(InitialSetMenu(L"ShowRevGraphOverview", false, ID_VIEW_SHOWOVERVIEW));
+	m_Graph.SetShowBranchColors(InitialSetMenu(L"ShowRevGraphBranchColors", false, ID_VIEW_BRANCH_COLORS));
 	m_Graph.m_bShowBranchingsMerges = InitialSetMenu(L"ShowRevGraphBranchesMerges", false, ID_VIEW_SHOWBRANCHINGSANDMERGES);
 	m_Graph.m_bShowAllTags = InitialSetMenu(L"ShowRevGraphAllTags", true, ID_VIEW_SHOWALLTAGS);
 	m_Graph.m_bArrowPointToMerges = InitialSetMenu(L"ArrowPointToMerges", false, ID_VIEW_ARROW_POINT_TO_MERGES);
@@ -860,4 +864,20 @@ void CRevisionGraphDlg::OnWindowPosChanging(WINDOWPOS* lpwndpos)
 	if (!m_bVisible)
 		lpwndpos->flags &= ~SWP_SHOWWINDOW;
 	CResizableStandAloneDialog::OnWindowPosChanging(lpwndpos);
+}
+
+void CRevisionGraphDlg::OnBranchColors()
+{
+	m_Graph.SetShowBranchColors(ToggleSetMenu(L"ShowRevGraphBranchColors", ID_VIEW_BRANCH_COLORS));
+
+	UpdateFullHistory();
+}
+
+void CRevisionGraphDlg::OnConfigureBranchColors()
+{
+	CRevGraphBranchColorDlg dlg;
+
+	if (dlg.DoModal() == IDOK)
+	{
+	}
 }

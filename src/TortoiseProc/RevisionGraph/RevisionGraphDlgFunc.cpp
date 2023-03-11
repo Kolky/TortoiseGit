@@ -1,7 +1,7 @@
 ﻿// TortoiseGit - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2011 - TortoiseSVN
-// Copyright (C) 2012-2022 - TortoiseGit
+// Copyright (C) 2012-2023 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -397,6 +397,16 @@ void CRevisionGraphWnd::SetShowOverview (bool value)
 	if (m_bShowOverview)
 		BuildPreview();
 }
+
+bool CRevisionGraphWnd::GetShowBranchColors() const
+{
+	return m_bShowBranchColors;
+}
+void CRevisionGraphWnd::SetShowBranchColors(bool value)
+{
+	m_bShowBranchColors = value;
+}
+
 CString	CRevisionGraphWnd::GetFriendRefName(ogdf::node v) const
 {
 	if (!v)

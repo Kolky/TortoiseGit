@@ -1040,6 +1040,9 @@
     <ClCompile Include="WorktreeListDlg.cpp">
       <Filter>Commands\worktree</Filter>
     </ClCompile>
+    <ClCompile Include="RevisionGraph\RevGraphBranchColorDlg.cpp">
+      <Filter>Commands\RevisionGraph</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddRemoteDlg.h">
@@ -1968,6 +1971,9 @@
     </ClInclude>
     <ClInclude Include="WorktreeListDlg.h">
       <Filter>Commands\worktree</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\RevGraphBranchColorDlg.h">
+      <Filter>Commands\RevisionGraph</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
