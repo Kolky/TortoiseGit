@@ -2406,6 +2406,13 @@ FONT 9, "Segoe UI", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,103,87,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,157,87,50,14
+    CONTROL         "",IDC_MFCCOLORBUTTON1,"MfcColorButton",WS_TABSTOP,143,38,50,14
+    GROUPBOX        "Static",IDC_STATIC,89,3,176,80
+    LTEXT           "Branch name",IDC_STATIC,99,17,44,8
+    LTEXT           "Branch color",IDC_STATIC,98,42,43,8
+    PUSHBUTTON      "Add or Save",IDC_BUTTON_ADD,104,65,50,14
+    EDITTEXT        IDC_EDIT1,147,18,40,14,ES_AUTOHSCROLL
+    LISTBOX         IDC_LIST2,8,5,74,96,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
 END
 
 
@@ -3580,6 +3587,30 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// Dialog Info
+//
+
+IDD_REVGRAPH_BRANCH_COLORS DLGINIT
+BEGIN
+    IDC_MFCCOLORBUTTON1, 0x37c, 215, 0
+0x4d3c, 0x4346, 0x6f43, 0x6f6c, 0x4272, 0x7475, 0x6f74, 0x5f6e, 0x6e45,
+0x6261, 0x656c, 0x744f, 0x6568, 0x4272, 0x7475, 0x6f74, 0x3e6e, 0x5254,
+0x4555, 0x2f3c, 0x464d, 0x4343, 0x6c6f, 0x726f, 0x7542, 0x7474, 0x6e6f,
+0x455f, 0x616e, 0x6c62, 0x4f65, 0x6874, 0x7265, 0x7542, 0x7474, 0x6e6f,
+0x3c3e, 0x464d, 0x4343, 0x6c6f, 0x726f, 0x7542, 0x7474, 0x6e6f, 0x455f,
+0x616e, 0x6c62, 0x4165, 0x7475, 0x6d6f, 0x7461, 0x6369, 0x7542, 0x7474,
+0x6e6f, 0x463e, 0x4c41, 0x4553, 0x2f3c, 0x464d, 0x4343, 0x6c6f, 0x726f,
+0x7542, 0x7474, 0x6e6f, 0x455f, 0x616e, 0x6c62, 0x4165, 0x7475, 0x6d6f,
+0x7461, 0x6369, 0x7542, 0x7474, 0x6e6f, 0x3c3e, 0x464d, 0x4343, 0x6c6f,
+0x726f, 0x7542, 0x7474, 0x6e6f, 0x435f, 0x6c6f, 0x6d75, 0x736e, 0x6f43,
+0x6e75, 0x3e74, 0x3c35, 0x4d2f, 0x4346, 0x6f43, 0x6f6c, 0x4272, 0x7475,
+0x6f74, 0x5f6e, 0x6f43, 0x756c, 0x6e6d, 0x4373, 0x756f, 0x746e, "\076"
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // String Table
 //
 
@@ -3653,7 +3684,7 @@ BEGIN
     IDS_PROC_LOG_STATS      "Showing %1!ld! revision(s), from revision %2!s! to revision %3!s! - %4!ld! revision(s) selected, %5!ld! file(s) selected"
     IDS_PROC_LOG_ALLBRANCHES "<All Branches>"
     IDS_PROC_LOG_NOBRANCH   "<No branch>"
-    IDS_SETTINGS_CREATELIB_TT 
+    IDS_SETTINGS_CREATELIB_TT
                             "Creates a library folder with special settings for Git working trees"
     IDS_STATUSLIST_GROUP_MERGEDFILES "Merged Files"
     IDS_IMPORT_DEFAULTMSG   "Initial import"
@@ -3699,7 +3730,7 @@ BEGIN
     IDS_ALL                 "All"
     IDS_NONE                "None"
     IDS_FETCH_REACHABLE     "Reachable"
-    IDS_REVGRAPH_ERR_NOMEMORY 
+    IDS_REVGRAPH_ERR_NOMEMORY
                             "Not enough memory!\nTry reducing the size of the revision graph by either\ncollapsing nodes or reducing the zoom factor."
     IDS_PROC_RESET          "Reset"
     IDS_FETCH_TAGS_ONLY     "All tags only"
@@ -3713,7 +3744,7 @@ BEGIN
     IDS_COMMITDLG_FILE      "File"
     IDS_COMMITDLG_STATUS    "Status"
     IDS_COMMITDLG_ASKADD    "You selected an unversioned file.\nThe file will be added to version control when you commit."
-    IDS_COMMITDLG_NOTHINGTOCOMMIT 
+    IDS_COMMITDLG_NOTHINGTOCOMMIT
                             "No files were changed or added since\nthe last commit."
     IDS_PROGRS_ATREV        "At revision: %d"
     IDS_PROGRS_ACTION       "Action"
@@ -3730,7 +3761,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_LOG_REVERTTOREV_CONFIRM 
+    IDS_LOG_REVERTTOREV_CONFIRM
                             "Do you really want to revert all changes in\n%s\nand go back to this revision? These changes will be reverted by reverse-merging the revisions into your working tree."
     IDS_LOG_REVERTREV_ERROR "Unable to reconstruct working tree path!\nThis can happen if the file has been renamed.\nPlease start the log dialog on this specific file alone and then revert the changes\nfrom the top pane in the log dialog."
     IDS_LOG_STOPONCOPY_HINT "For complete history deselect 'Stop on copy/rename'"
@@ -3762,18 +3793,18 @@ BEGIN
     IDS_REVGRAPH_POPUP_UNIDIFFHEADS "Unified &diff of HEAD revisions"
     IDS_PROC_STATISTICS_DIFF "Diffing commits"
     IDS_PROGS_TITLE_GATHERSTATISTICS "Gathering statistics"
-    IDS_STATGRAPH_LINES_BYDATE_W 
+    IDS_STATGRAPH_LINES_BYDATE_W
                             "Changed lines including added/deleted files by date"
-    IDS_STATGRAPH_LINES_BYDATE_WO 
+    IDS_STATGRAPH_LINES_BYDATE_WO
                             "Changed lines not including added/deleted files by date"
-    IDS_STATGRAPH_LINES_BYDATE_W_Y 
+    IDS_STATGRAPH_LINES_BYDATE_W_Y
                             "Changed lines including added/deleted files"
-    IDS_STATGRAPH_LINES_BYDATE_WO_Y 
+    IDS_STATGRAPH_LINES_BYDATE_WO_Y
                             "Changed lines not including added/deleted files"
     IDS_DETECT_MOVED_OR_COPIED_LINES_DISABLED "Disabled"
     IDS_DETECT_MOVED_OR_COPIED_LINES_WITHIN_FILE "Within file"
     IDS_DETECT_MOVED_OR_COPIED_LINES_FROM_MODIFIED_FILES "From modified files"
-    IDS_DETECT_MOVED_OR_COPIED_LINES_FROM_EXISTING_FILES_AT_FILE_CREATION 
+    IDS_DETECT_MOVED_OR_COPIED_LINES_FROM_EXISTING_FILES_AT_FILE_CREATION
                             "At file creation"
     IDS_DETECT_MOVED_OR_COPIED_LINES_FROM_EXISTING_FILES "From existing files"
 END
@@ -3788,7 +3819,7 @@ BEGIN
     IDS_ERR_MISSINGVALUE    "This field is required and must not be empty."
     IDS_STATUSLIST_GROUP_NOTVERSIONEDFILES "Not Versioned Files"
     IDS_STATUSLIST_GROUP_IGNOREDFILES "Ignored Files"
-    IDS_PROGRS_REVERTMARKERS 
+    IDS_PROGRS_REVERTMARKERS
                             "The selected file appears to still have one or more conflict markers in it.\nAre you sure you want to mark the file resolved?"
     IDS_SETTINGS_SELECTDIFF "Select diff application"
     IDS_SETTINGS_SELECTDIFFVIEWER "Select viewer for diff-files"
@@ -3803,24 +3834,24 @@ STRINGTABLE
 BEGIN
     IDS_MSYSGIT_PATH_TT     "Git Install Path"
     IDS_PROC_BROWSEREFS_COMPAREREFS "Compare selected refs"
-    IDS_SETTINGS_EXTMERGE_TT 
+    IDS_SETTINGS_EXTMERGE_TT
                             "An external merge program used\nto resolve conflicted files.\n\nYou can specify the following parameters to the path:\n%merged: the conflicted file, where to save\n%theirs: the file as it is in the repository\n%mine: your own file, with your changes\n%base: the original file without your changes"
     IDS_SETTINGS_PROXYSERVER_TT "Either the name or IP of the proxy server"
-    IDS_SETTINGS_DIFFVIEWER_TT 
+    IDS_SETTINGS_DIFFVIEWER_TT
                             "A viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
-    IDS_SETTINGS_AUTOCLOSE_TT 
+    IDS_SETTINGS_AUTOCLOSE_TT
                             "Select the behavior of the progress dialog at the end of the operation."
     IDS_PROC_BROWSEREFS_RENAME "Rename"
     IDS_PROC_BROWSEREFS_MANAGEREMOTES "Manage Remotes"
     IDS_PROC_WARNREVERT     "Are you sure you want to revert %d item(s)? You will lose ALL changes since the last update!"
-    IDS_PROC_CLEANUPFINISHED 
+    IDS_PROC_CLEANUPFINISHED
                             "Cleanup has successfully processed the following paths:\n%s"
     IDS_PROC_REPOCREATEERR  "Git reported an error while creating a repository!\n"
     IDS_PROC_EXPORT_1       "Select folder to export to.\nYou might need to create a new folder before performing this export."
     IDS_PROC_EXPORT_2       "Export unversioned files too"
     IDS_PROC_EXPORT_3       "Exporting..."
     IDS_SELECT              "Select"
-    IDS_HOOKS_APPROVE_SECURITYHINT 
+    IDS_HOOKS_APPROVE_SECURITYHINT
                             "If you are executing a versioned file from the repository, please note that the content possibly have been altered by third parties unnoticed (e.g. after pull or merge). Keep this in mind especially if you approve a repository hook permanently."
 END
 
@@ -3830,31 +3861,31 @@ BEGIN
     IDS_ERR_NOTENOUGHMEMORY "Not enough memory to complete operation."
     IDS_ERR_MUSTBEURL       "This is not a valid URL.\nPlease enter an URL here."
     IDS_CHECKUPDATE_DESTFOLDER "Show destination folder"
-    IDS_ERR_MERGEIDENTICALREVISIONS 
+    IDS_ERR_MERGEIDENTICALREVISIONS
                             "Merging requires different revisions or different URLs in 'From:' and 'To:'"
     IDS_ERR_NOHOOKTYPESPECIFIED "Please select a hook type"
-    IDS_ERR_NOHOOKPATHSPECIFIED 
+    IDS_ERR_NOHOOKPATHSPECIFIED
                             "Please enter a path where to apply the hook script to. Use ""*"" for all paths."
     IDS_ERR_NOHOOKCOMMANDPECIFIED "Please enter a hook script to execute."
     IDS_ERR_HOOKFAILED      "The hook script returned an error:\n%s"
     IDS_PROC_BROWSEREFS_DELETETAG "Delete tag"
-    IDS_ERR_FAILEDUPDATEDOWNLOAD 
+    IDS_ERR_FAILEDUPDATEDOWNLOAD
                             "Not all files could be downloaded and verified."
     IDS_ERR_NOPREVREVISION  "Could not determine the last committed revision!"
-    IDS_PROC_CLEANUPFINISHED_FAILED 
+    IDS_PROC_CLEANUPFINISHED_FAILED
                             "Cleanup failed to process the following paths:\n%s"
     IDS_ERR_TWOLOGPARAMS    "Both /logmsg and /logmsgfile were specified!\nOnly one of those can be specified."
     IDS_ERR_TEXTVIEWSTART   "Could not start text viewer!\n\n%s"
-    IDS_ERR_FAILEDISSUETRACKERCOM 
+    IDS_ERR_FAILEDISSUETRACKERCOM
                             "Failed to start the issue tracker COM provider '%1!s!'.\n%2!s!"
 END
 
 STRINGTABLE
 BEGIN
     IDS_PROC_SETTINGS_TITLE "Settings - TortoiseGit"
-    IDS_SETTINGS_ALTERNATIVEEDITOR_TT 
+    IDS_SETTINGS_ALTERNATIVEEDITOR_TT
                             "An alternative editor. Which should preferably support *nix line endings."
-    IDS_PROC_OVERWRITE_CONFIRM 
+    IDS_PROC_OVERWRITE_CONFIRM
                             "The file\n%s\nalready exists! Do you want to overwrite it?"
     IDS_PROC_REPOCREATEFINISHED "The repository was successfully created."
     IDS_PROC_BROWSEREFS_DELETEREMOTEBRANCH "Delete remote branch"
@@ -3868,13 +3899,13 @@ BEGIN
     IDS_PROC_CPYMVPROG2     "to %s"
     IDS_PROC_ENTERURL       "Enter URL"
     IDS_PROC_BROWSEREFS_DELETEBRANCH "Delete branch"
-    IDS_SETTINGS_SHORTDATEFORMAT_TT 
+    IDS_SETTINGS_SHORTDATEFORMAT_TT
                             "Check to use a less verbose date and time format in log messages"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_SETTINGS_RELATIVETIMES_TT 
+    IDS_SETTINGS_RELATIVETIMES_TT
                             "Check to show relative times in log messages"
     IDS_PROC_BROWSEREFS_DELETEBRANCHES "Delete %d branches"
     IDS_ERR_EXTDIFFSTART    "Could not start external diff program!\n\n%s"
@@ -3895,15 +3926,15 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_ERR_PROVIDER_VALIDATE_FAILED 
+    IDS_ERR_PROVIDER_VALIDATE_FAILED
                             "The issue-tracker provider was unable to validate the parameter string"
-    IDS_ERR_NO_AVAILABLE_BUGTRAQ_PROVIDERS 
+    IDS_ERR_NO_AVAILABLE_BUGTRAQ_PROVIDERS
                             "There are no issue-tracker providers available."
-    IDS_SETTINGS_BUGTRAQ_SELECTFOLDERPATH 
+    IDS_SETTINGS_BUGTRAQ_SELECTFOLDERPATH
                             "Select folder to associate with this issue tracker"
     IDS_FILEDIFF_STATADD    "Lines added"
     IDS_FILEDIFF_STATDEL    "Lines removed"
-    IDS_PROC_DIFFERROR_FILENOTINWORKINGTREE 
+    IDS_PROC_DIFFERROR_FILENOTINWORKINGTREE
                             "The file ""%s"" does not exist in your working tree.\nDo you want to select another file to diff?"
     IDS_MENURESTORE         "Restore"
     IDS_ERR_TGITBLAME       "Could not start TortoiseGitBlame"
@@ -3919,9 +3950,9 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_PROC_MARK_ASSUMEVALID 
+    IDS_PROC_MARK_ASSUMEVALID
                             "Do you really want to mark the selected file(s) as assume-valid?"
-    IDS_PROC_MARK_SKIPWORKTREE 
+    IDS_PROC_MARK_SKIPWORKTREE
                             "Do you really want to mark the selected file(s) as skip-worktree?"
     IDS_SHOWLOG_OF          "Show log of %s"
     IDS_LOG_CHRONOLOGICALREVERSEDORDER "Chronological reversed (git default)"
@@ -3933,7 +3964,7 @@ BEGIN
     IDS_LOCAL_WINSTORE      "winstore - this repository only"
     IDS_GLOBAL_WINCRED      "wincred - current Windows user"
     IDS_GLOBAL_WINSTORE     "winstore - current Windows user"
-    IDS_WARN_GITINIT_FOLDERNOTEMPTY 
+    IDS_WARN_GITINIT_FOLDERNOTEMPTY
                             "The target folder \n%s\nis not empty!\nAre you sure you want to initialize a git repository inside that folder?"
     IDS_WARN_WARNING        "Warning"
     IDS_WARN_NOTE           "Notice"
@@ -3943,9 +3974,9 @@ END
 STRINGTABLE
 BEGIN
     IDS_SYSTEM_WINCRED      "wincred - all Windows users"
-    IDS_DAEMON_SECURITY_WARN 
+    IDS_DAEMON_SECURITY_WARN
                             "While running daemon, all data of this repository is exposed without authentication and/or encryption."
-    IDS_ASK_REMOVE_FROM_INDEX 
+    IDS_ASK_REMOVE_FROM_INDEX
                             "TortoiseGit detected that the file ""%s"" does not exist, but is staged as ""Added"" or ""Modified"".\nThe commit dialog cannot handle this.\n\nDo you want to restore or remove it from the index?"
     IDS_REMOVE_FROM_INDEX   "&Remove this file from index"
     IDS_DO_SAME_FOR_REST    "&Do the same for the rest"
@@ -3955,9 +3986,9 @@ BEGIN
     IDS_SETTINGS_GLOBAL     "Global"
     IDS_SETTINGS_SYSTEM     "System"
     IDS_GITCREDENTIAL_HELPEREMPTY "Credential helper must not be empty."
-    IDS_GITCREDENTIAL_OVERWRITEHELPER 
+    IDS_GITCREDENTIAL_OVERWRITEHELPER
                             "The credential helper URL ""%s"" already exists.\nDo you want to overwrite it?"
-    IDS_GITCREDENTIAL_SAVEHELPER 
+    IDS_GITCREDENTIAL_SAVEHELPER
                             "The credential helper was changed.\nDo you want to save now or discard changes?"
     IDS_STATGRAPH_COMMITSBYAUTHORMOREX "author (>= 0.5%)"
     IDS_RESET_MIXED         "Mixed"
@@ -3966,13 +3997,13 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CHERRYPICKFAILEDSKIP 
+    IDS_CHERRYPICKFAILEDSKIP
                             "Cherry-pick failed (please see log in the cherry pick/rebase dialog for details)! Skip this commit?"
     IDS_COPY_REF_NAMES      "Copy ref names"
     IDS_PROC_GITCONFIG_VIEWTGITCONFIG "View .tgitconfig"
     IDS_SMTP_MAPI           "MAPI"
     IDS_SMTP_DIRECTLY       "SMTP, directly to destination server"
-    IDS_PROC_GITCONFIG_ASKTAGOPT 
+    IDS_PROC_GITCONFIG_ASKTAGOPT
                             "To avoid fetching wrong tags, if this is not an official remote,\nyou are advised to disable tag fetching for this remote.\nDisable tag fetching?"
     IDS_COMMITDLG_POPUP_PICKCOMMITHASH "Pick commit &hash"
     IDS_COMMITDLG_POPUP_PICKCOMMITMESSAGE "Pick commit &message"
@@ -3981,16 +4012,16 @@ BEGIN
     IDS_WORKING_TREE        "Working Tree"
     IDS_REPOBROWSE_INFOFILE "%1!s!\nSize %2!s!"
     IDS_REPOBROWSE_INFOMULTI "%1!d! items selected"
-    IDS_SETTINGS_ENABLEGRAVATAR_TT 
+    IDS_SETTINGS_ENABLEGRAVATAR_TT
                             "Enable showing Gravatar image in Log Dialog"
     IDS_SETTINGS_GRAVATARURL_TT "Allow to use custom Gravatar URL"
-    IDS_PROC_SWITCH_MERGE_TT 
+    IDS_PROC_SWITCH_MERGE_TT
                             "Merge between original branch, working tree contents, and the branch to switch to"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_SETTINGS_ENABLEDRAGCONTEXTMENU_TT 
+    IDS_SETTINGS_ENABLEDRAGCONTEXTMENU_TT
                             "When enabled, TortoiseGit move context menu items will be available when dragging folders / files"
     IDS_DIFFOPTION_IGNORESPACEATEOL "Ignore space at EOL"
     IDS_DIFFOPTION_IGNORESPACECHANGE "Ignore space change"
@@ -3998,9 +4029,9 @@ BEGIN
     IDS_DIFFOPTION_IGNORBLANKLINES "Ignore blank lines"
     IDS_SELECTUPSTREAM      "Please select upstream"
     IDS_SELECTBRANCH        "Please select branch"
-    IDS_B_CANNOTFORCECURRENT 
+    IDS_B_CANNOTFORCECURRENT
                             "Cannot force updating current branch. Use reset command if you want to do so."
-    IDS_REPOBROWSEASKSUBMODULEUPDATE 
+    IDS_REPOBROWSEASKSUBMODULEUPDATE
                             "Commit %1!s! not found in ""%2!s!"". Update submodule now?"
     IDS_TRACKEDBRANCH       "Tracked branch"
     IDS_REBASE_AUTOSKIPPED  "Please take a look at the skipped commits"
@@ -4013,7 +4044,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_SETTINGS_EXTMENULAYOUT_TT 
+    IDS_SETTINGS_EXTMENULAYOUT_TT
                             "Check those menu entries you want to appear only in the extended context menu (SHIFT + right click)"
     IDS_REVGRAPH_ERR_NOGRAPH "No graph available"
 END
@@ -4048,16 +4079,16 @@ BEGIN
     IDS_DELETE_REMOTETAG    "Delete tag on remote"
     IDS_DELETE_LOCALTAG     "Delete local tag"
     IDS_CONFLICT_NOTASUBMODULE "file, not a submodule"
-    IDS_REBASE_CURRENTBRANCHUPTODATE 
+    IDS_REBASE_CURRENTBRANCHUPTODATE
                             "Current branch is up to date or newer than the fetched branch. Open rebase anyway?"
     IDS_GITCONFIG_SETTING   "This option represents ""%s"" git config setting."
-    IDS_SETTINGS_GITCONFIG_INHERIT_TT 
+    IDS_SETTINGS_GITCONFIG_INHERIT_TT
                             "If this is enabled, no value is stored or overwritten at this config level."
     IDS_PROC_REMOTEBRANCH   "Remote Branch"
     IDS_VIEW_SHOWROTHERLABELS "Other refs"
-    IDS_CONFLICT_HINT_IN_COMMIT_MESSAGE 
+    IDS_CONFLICT_HINT_IN_COMMIT_MESSAGE
                             "It looks as if there is a conflict hint (a line like ""# Conflicts:"") in your commit message. This hint is automatically added by Git for cli users and there is no need to keep it.\n\nDo you want to ignore this warning and keep these lines or abort committing in order to edit the commit message?\n\nYou can automatically remove these lines by enabling ""Strip lines starting with ""#"" in commit messages"" in TortoiseGit settings."
-    IDS_NEED_TO_RESOLVE_CONFLICTS_HINT 
+    IDS_NEED_TO_RESOLVE_CONFLICTS_HINT
                             "While merging, i.e. integrating changes of another (remote) branch into your local branch, a conflict in at least one file occurred. This means that you need to resolve this manually (i.e., you need to integrate your changes into a file which was also modified on another branch).\n\nAfter resolving all files, you need to perform a commit in order to complete the merge.\n\nIf you want to abort the merge, do a hard reset on HEAD or select abort merge on the context menu.\n\nSee help for more information."
     IDS_STATUSLIST_CONTEXT_ADD_EXE "Add as Executable (+x)"
 END
@@ -4069,20 +4100,20 @@ BEGIN
     IDS_NOGITREPO           "No valid git repository found."
     IDS_REVERTCOMMITS       "Revert the selected commit(s)?"
     IDS_COMMON_ANCESTOR     "Use common ancestor (A...B diff)"
-    IDS_GITCHANGED_NEEDRESTART 
+    IDS_GITCHANGED_NEEDRESTART
                             "Please restart TortoiseGit for the changes of git.exe to take effect."
     IDS_CLONE_BARE_REPO_TT  "Clone into a git repository without the working tree."
-    IDS_CLONE_NO_CHECKOUT_TT 
+    IDS_CLONE_NO_CHECKOUT_TT
                             "No checkout of HEAD is performed after the clone is complete.\nThis makes the working tree empty."
     IDS_CLONE_RECURSIVE_TT  "Submodules are initialized and cloned using their default settings."
     IDS_CLONE_BRANCH_TT     "Instead of pointing the newly created HEAD to the branch pointed to by the cloned repository's HEAD, point to specific branch instead."
-    IDS_CLONE_ORIGIN_NAME_TT 
+    IDS_CLONE_ORIGIN_NAME_TT
                             "Instead of using the remote name ""origin"" to keep track of the upstream repository, use the specific name."
     IDS_MERGESUCCESSFUL     "Was the merge of\n%s\nsuccessful?"
     IDS_PROC_SYNC_SWITCHTO  "Switch to ""%s"""
     IDS_CONFIGUREDEFAULT    "Configure default"
     IDS_DARKTHEME_TT        "Dark theme requires at least Win10 1803, and it must be enabled in the Windows system settings."
-    IDS_COMMITDLG_NOTEDITEDTEMPLATE 
+    IDS_COMMITDLG_NOTEDITEDTEMPLATE
                             "You did not edit the message template.\nProceed without individual commit message?"
 END
 
@@ -4095,7 +4126,7 @@ BEGIN
     IDS_ABOUTVERSIONBOX     "TortoiseGit %d.%d.%d, Build %d - %s, %s"
     IDS_REASON              "Reason"
     IDS_PRUNE               "Prune"
-    IDS_PROC_DELETE_WORKTREE 
+    IDS_PROC_DELETE_WORKTREE
                             "Do you really want to delete the selected worktree(s)?"
     IDS_PROC_LOCKED_WORKTREES "Locked %d worktree(s)."
     IDS_PROC_UNLOCKED_WORKTREES "Successfully unlocked %d worktree(s)."
@@ -4110,7 +4141,7 @@ BEGIN
     IDS_SETTINGS_BUGTRAQ_PATHCOL "Path"
     IDS_SETTINGS_BUGTRAQ_PROVIDERCOL "Provider"
     IDS_SETTINGS_BUGTRAQ_PARAMETERSCOL "Parameters"
-    IDS_ERR_MISSING_PROVIDER 
+    IDS_ERR_MISSING_PROVIDER
                             "The issue-tracker provider could not be created. Please check that it is installed correctly."
 END
 
@@ -4122,16 +4153,16 @@ END
 STRINGTABLE
 BEGIN
     IDC_MERGEACTIVE_TT      "A merge process is active, so this commit will be a merge commit. In order to abort a merge, you have to perform a reset or forced checkout."
-    IDS_STATUSLIST_RESTOREPATH 
+    IDS_STATUSLIST_RESTOREPATH
                             "Do you really want to restore the copy? You will lose all changes that you have done after creating the copy."
     IDS_RESTOREBUTTON       "&Restore"
-    IDS_STATUSLIST_STATUSLINE1 
+    IDS_STATUSLIST_STATUSLINE1
                             "line: %d(+) %d(-) files: %s = %ld\n%s = %ld\n%s = %ld\n%s = %ld"
-    IDS_STATUSLIST_STATUSLINE2 
+    IDS_STATUSLIST_STATUSLINE2
                             "line: %d(+) %d(-) files: %s = %ld\n%s = %ld\n%s = %ld\n%s = %ld\n%s = %ld\n%s = %ld"
     IDS_STATUSLIST_FAILEDGETMERGEFILE "Failed to get merge file."
     IDS_STATUSLIST_FAILEDGETBASEFILE "Failed to get base file."
-    IDS_STATUSLIST_CHECKOUTFILEFAILED 
+    IDS_STATUSLIST_CHECKOUTFILEFAILED
                             "Failed to checkout file ""%1!s!"" of revision %2!s! to ""%3!s!""."
     IDS_STATUSLIST_FILESREVERTED "%1!d! files reverted to %2!s!."
     IDS_REFBROWSE           "Reference Browser"
@@ -4150,7 +4181,7 @@ BEGIN
     IDS_PROGS_TITLE_CREATEBRANCH "Create Branch"
     IDS_PROC_TAG            "Tag"
     IDS_PROC_BRANCH         "Branch"
-    IDS_PROC_NEWBRANCHTAG_FORCE_TT 
+    IDS_PROC_NEWBRANCHTAG_FORCE_TT
                             "Force creation of branch/tag - even if one with same name already exists."
     IDS_PROC_NEWBRANCHTAG_SIGN_TT "GPG signs the tag, see manual for details"
     IDS_ERR_COPYITSELF      "Can't copy \n%1!s!\nto\n%2!s!"
@@ -4161,7 +4192,7 @@ BEGIN
     IDS_ERR_NOVALIDPATH     "This is not a valid path!\nA valid path must not contain '<<>|""?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
     IDS_ERR_FAILEDUNIGNOREPROPERTY "Could not remove %s from the ignore list"
     IDS_ERR_NOTHINGTOREVERT "No files or folders were modified. There is nothing for TortoiseGit to revert!"
-    IDS_ERR_NOCOMMONCOPYFROM 
+    IDS_ERR_NOCOMMONCOPYFROM
                             "The two selected URL's are not created from the same root.\nIt's not possible to show the log messages between them!"
 END
 
@@ -4194,7 +4225,7 @@ BEGIN
     IDS_ENCRYPT_NONE        "none"
     IDS_ENCRYPT_STARTTLS    "STARTTLS"
     IDS_ENCRYPT_SSL         "SSL/TLS"
-    IDS_COMMIT_MESSAGEONLY_TT 
+    IDS_COMMIT_MESSAGEONLY_TT
                             "Allows to create an empty commit which only has a commit message and no files (cf. git commit --allow-empty)."
     IDS_DISABLEUPDATECHECKSBUTTON "Disable update checks"
     IDS_DISABLEUPDATECHECKS "Do you really want to disable automatic update checks for TortoiseGit?\n\nAutomatic update checks can be re-enabled in TortoiseGit settings on the General page."
@@ -4222,20 +4253,20 @@ BEGIN
     IDS_PUTTYKEYFILEFILTER  "Putty Private Key (*.ppk)|*.ppk|All Files (*.*)|*.*||"
     IDS_PROC_GITCONFIG_REMOTEEMPTY "Remote name must not be empty."
     IDS_PROC_GITCONFIG_URLEMPTY "Remote URL must not be empty."
-    IDS_PROC_GITCONFIG_OVERWRITEREMOTE 
+    IDS_PROC_GITCONFIG_OVERWRITEREMOTE
                             "The remote ""%s"" already exists.\nDo you want to overwrite it?"
-    IDS_PROC_GITCONFIG_SAVEREMOTE 
+    IDS_PROC_GITCONFIG_SAVEREMOTE
                             "The Remote Config was changed.\nDo you want to save now or discard changes?"
     IDS_SAVEBUTTON          "&Save"
     IDS_DISCARDBUTTON       "&Discard"
-    IDS_PROC_SAVECONFIGFAILED 
+    IDS_PROC_SAVECONFIGFAILED
                             "Saving config failed (key: ""%1!s!"", value: ""%2!s!"")."
     IDS_WARN_REMOVE         "Do you really want to remove ""%s""?"
     IDS_PROC_GITCONFIG_EDITLOCALGONCFIG "Edit local git config"
-    IDS_PROC_GITCONFIG_NOMSYSGIT 
+    IDS_PROC_GITCONFIG_NOMSYSGIT
                             "Git directory not set (see ""General"" settings page)."
     IDS_PROC_CLONE_DIR      "&Browse..."
-    IDS_GITEXEERROR_NOMESSAGE 
+    IDS_GITEXEERROR_NOMESSAGE
                             """%s"" exited with an error, however, without generating any output such as an error message."
     IDS_PROC_CLONE_URLDIREMPTY "URL and directory must not be empty."
     IDS_PROC_COMMIT_SHOWPATCH "View Patch>>"
@@ -4250,23 +4281,23 @@ END
 STRINGTABLE
 BEGIN
     IDS_COMMITDLG_STATISTICSFORMAT "%1!d! files selected, %2!d! files total"
-    IDS_COMMITDLG_ONLYNUMBERS 
+    IDS_COMMITDLG_ONLYNUMBERS
                             "Only numbers (optionally separated by commas)\nare allowed!"
-    IDS_COMMITDLG_NOISSUEWARNING 
+    IDS_COMMITDLG_NOISSUEWARNING
                             "You haven't entered an issue number!\nAre you sure you want to commit without an issue number?"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_COMMITDLG_NOTHINGTOCOMMITUNVERSIONED 
+    IDS_COMMITDLG_NOTHINGTOCOMMITUNVERSIONED
                             "No files were changed or added since\nthe last commit.\nDo you want to see the unversioned files?"
     IDS_COMMITDLG_HISTORY_TT "Click here to select a recently typed message"
-    IDS_COMMITDLG_HISTORYHINT_TT 
+    IDS_COMMITDLG_HISTORYHINT_TT
                             "Your previously entered log messages have been saved.\nClick here to read and insert them again."
-    IDS_COMMITDLG_UNVERSIONEDFOLDERWARNING 
+    IDS_COMMITDLG_UNVERSIONEDFOLDERWARNING
                             "Committing an unversioned folder will not recursively add its child items!\nYou might want to add these folders recursively by using the 'Add...' context menu item.\n\nAre you sure that you want to continue the commit?"
     IDS_COMMITDLG_NOMESSAGE "You must enter a log message for the commit"
-    IDS_COMMITDLG_SUBMODULEDIRTY 
+    IDS_COMMITDLG_SUBMODULEDIRTY
                             "The submodule ""%s"" is dirty.\nMerely committing the superproject cannot track or save such changes to the submodule.\nCommit the submodule now or ignore dirty changes?"
 END
 
@@ -4279,24 +4310,24 @@ BEGIN
     IDS_PROC_RESOLVE        "Are you sure you want to mark the conflicted file(s) as resolved?"
     IDS_PROC_RTFM           "TortoiseGit is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use TortoiseGit please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all TortoiseGit commands.\nAnd read the manual!"
     IDS_PROC_CASERENAME     "It is not possible to rename a file by changing the case of its name alone.\nFor example, you can't make MyFile.txt become MYFILE.txt.\nPlease consult the documentation for a way to work around this limitation."
-    IDS_PROC_UNIGNORESUCCESS 
+    IDS_PROC_UNIGNORESUCCESS
                             "Removed the file pattern(s)\n%s\nfrom the ignore list."
     IDS_PROC_FORCEMOVE      "Do you really want to move this file or folder?"
     IDS_PROC_ICONCACHEREBUILT "Shell Icon Cache was rebuilt!"
     IDS_PROC_ICONCACHENOTREBUILT "Error rebuilding Shell Icon Cache!"
-    IDS_PROC_REMOVEFORCEFOLDER 
+    IDS_PROC_REMOVEFORCEFOLDER
                             "The folder %s\ncontains unversioned and/or modified file(s). Do you want to remove it anyway?"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_SETTINGS_CHECKNEWER_TT 
+    IDS_SETTINGS_CHECKNEWER_TT
                             "If enabled, TortoiseGit checks once a week if a newer version is available"
-    IDS_SETTINGS_ONLYEXPLORER_TT 
+    IDS_SETTINGS_ONLYEXPLORER_TT
                             "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
-    IDS_SETTINGS_MENULAYOUT_TT 
+    IDS_SETTINGS_MENULAYOUT_TT
                             "Check those menu entries you want to appear in the top context menu instead of the TortoiseGit submenu"
-    IDS_SETTINGS_EXCLUDELIST_TT 
+    IDS_SETTINGS_EXCLUDELIST_TT
                             "A newline separated list of paths for which no icon overlays are shown.\nIf you add an '?' char at the end of a path, then only this path will be excluded.\nIf you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\nAn empty list will allow overlays on all paths."
 END
 
@@ -4315,9 +4346,9 @@ STRINGTABLE
 BEGIN
     IDS_CHECKNEWER_YOURVERSION "Your version is: %d.%d.%d.%d"
     IDS_CHECKNEWER_CURRENTVERSION "Current version is: %s"
-    IDS_CHECKNEWER_YOURUPTODATE 
+    IDS_CHECKNEWER_YOURUPTODATE
                             "You already have the latest version installed."
-    IDS_CHECKNEWER_NEWERVERSIONAVAILABLE 
+    IDS_CHECKNEWER_NEWERVERSIONAVAILABLE
                             "A newer version is available. Please download the current version!"
     IDS_CHECKNEWER_NETERROR "Could not check for a newer version!"
 END
@@ -4350,32 +4381,32 @@ END
 STRINGTABLE
 BEGIN
     IDS_SVNERR_CHECKPATHORURL "Check the path and/or URL you've entered."
-    IDS_SVNERR_CLEANUPORFRESHCHECKOUT 
+    IDS_SVNERR_CLEANUPORFRESHCHECKOUT
                             "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 END
 
 STRINGTABLE
 BEGIN
-    IDS_SETTINGS_INCLUDELIST_TT 
+    IDS_SETTINGS_INCLUDELIST_TT
                             "A newline separated list of paths for which icon overlays are shown.\nIf you add an '?' char at the end of a path, then only this path will be included.\nIf you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
-    IDS_SETTINGS_CLEARAUTH_TT 
+    IDS_SETTINGS_CLEARAUTH_TT
                             "Clears the stored authentication.\nYou will have to enter your username/password again for all repositories."
-    IDS_SETTINGS_ONLYNONELEVATED_TT 
+    IDS_SETTINGS_ONLYNONELEVATED_TT
                             "Uses the status cache type 'none' for elevated processes"
     IDS_SETTINGS_READONLYNAME "assume-valid"
     IDS_SETTINGS_LOCKEDNAME "skip-worktree"
-    IDS_SETTINGS_AUTOCOMPLETION_TT 
+    IDS_SETTINGS_AUTOCOMPLETION_TT
                             "Auto-complete suggests words (usually class or member names)\nfrom the files that you have changed as you type a log message."
-    IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT 
+    IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT
                             "The time in seconds after which the parsing of the selected files stops.\nA lower value will make the auto-completion list available sooner,\nbut maybe not scan all files."
-    IDS_SETTINGS_RECURSIVE_TT 
+    IDS_SETTINGS_RECURSIVE_TT
                             "Disable this option if you have really big working trees and experience\ntoo much disk access when browsing the working tree."
 END
 
 STRINGTABLE
 BEGIN
     IDS_PROGRS_CONFLICTSOCCURRED_WARNING "Warning!"
-    IDS_PROGRS_CONFLICTSOCCURRED 
+    IDS_PROGRS_CONFLICTSOCCURRED
                             "One or more files are in a conflicted state."
     IDS_PROGRS_DRYRUN       "Test Only"
     IDS_PROGRS_FINISHED     "Finished!"
@@ -4444,7 +4475,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_REVGRAPH_ERR_GDIINIT "GDI+ couldn't be initialized!"
-    IDS_REVGRAPH_ERR_NOBITMAP 
+    IDS_REVGRAPH_ERR_NOBITMAP
                             "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
     IDS_REVGRAPH_ERR_NOENCODER "No image encoder found for %s."
 END
@@ -4517,7 +4548,7 @@ BEGIN
     IDS_PROC_NEWNAMECOPY    "Copy: New name for %s"
     IDS_PROC_NEWNAMEMOVE    "Move: New name for %s"
     IDS_PROC_NEWNAMELABEL   "New name:"
-    IDS_COMMIT_AS_COMMIT_DATE_TT 
+    IDS_COMMIT_AS_COMMIT_DATE_TT
                             "Use the current time by setting the author date to the commit date."
     IDS_REBASE_ADDANOTHERCOMMIT "Add another commit?"
     IDS_PROC_LOG_ONLYONCE   "This operation cannot be started while the log dialog is still loading commits."
@@ -4530,35 +4561,35 @@ BEGIN
     IDS_DIFFWITHMERGE       "Show extra changes after merge"
     IDS_NOCHANGEAFTERMERGE  "No extra changes after merge"
     IDS_WARN_DELETE_MANY    "Do you really want to remove the %d selected files/directories?"
-    IDS_WARN_DELETE_MANY_FROM_INDEX 
+    IDS_WARN_DELETE_MANY_FROM_INDEX
                             "Do you really want to remove the %d selected files/directories from the index?"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_SETTINGS_UNVERSIONEDRECURSE_TT 
+    IDS_SETTINGS_UNVERSIONEDRECURSE_TT
                             "If set, files inside unversioned folders can be shown in the status control.\nThe status control is used for example in the commit dialog."
-    IDS_SETTINGS_MAXHISTORY_TT 
+    IDS_SETTINGS_MAXHISTORY_TT
                             "Specifies how many items you want to keep in the most recent log messages dialog."
-    IDS_SETTINGS_CACHEDEFAULT_TT 
+    IDS_SETTINGS_CACHEDEFAULT_TT
                             "Status cache kept in an external process that detects file changes, can show the overlay recursively"
-    IDS_SETTINGS_CACHESHELL_TT 
+    IDS_SETTINGS_CACHESHELL_TT
                             "Status cache only for one folder, no recursive overlays"
-    IDS_SETTINGS_CACHENONE_TT 
+    IDS_SETTINGS_CACHENONE_TT
                             "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-    IDS_SETTINGS_SAVEDDATA_LOGHIST_TT 
+    IDS_SETTINGS_SAVEDDATA_LOGHIST_TT
                             "Clears %1!ld! log messages stored for %2!ld! working trees"
-    IDS_SETTINGS_SAVEDDATA_URLHIST_TT 
+    IDS_SETTINGS_SAVEDDATA_URLHIST_TT
                             "Clears %1!ld! URLs stored for %2!ld! working trees"
-    IDS_SETTINGS_SAVEDDATA_RESIZABLE_TT 
+    IDS_SETTINGS_SAVEDDATA_RESIZABLE_TT
                             "Clears the stored sizes and positions of %ld dialogs"
-    IDS_SETTINGS_SAVEDDATA_AUTH_TT 
+    IDS_SETTINGS_SAVEDDATA_AUTH_TT
                             "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! usernames"
-    IDS_SETTINGS_RESTARTSYSTEM 
+    IDS_SETTINGS_RESTARTSYSTEM
                             "You must restart your system for the changes to take effect."
-    IDS_SETTINGS_UNVERSIONEDASMODIFIED_TT 
+    IDS_SETTINGS_UNVERSIONEDASMODIFIED_TT
                             "If set, then unversioned files will mark the status of the parent directory as modified\ni.e. they get the modified overlay icon."
-    IDS_SETTINGS_COMMITREOPEN_TT 
+    IDS_SETTINGS_COMMITREOPEN_TT
                             "If checked, the commit dialog will be started again automatically after an error,\nwhile preserving your last selection and log message."
 END
 
@@ -4567,7 +4598,7 @@ BEGIN
     IDS_PROGRESS_INFO       "Getting information..."
     IDS_PROGRESSIMPORT      "Importing file %s"
     IDS_PROGRESSREVISIONTEXT "Revision %s"
-    IDS_SETTINGS_SHOWREVCOUNTER_TT 
+    IDS_SETTINGS_SHOWREVCOUNTER_TT
                             "Show branch revision number (git rev-list --count --first-parent) in log dialog and after a push to a remote branch; this is not guaranteed to be unique, please see help"
 END
 
@@ -4590,18 +4621,18 @@ BEGIN
     IDS_PROC_NOPARENT       "Parent %d does not exist"
     IDS_PROC_NOPREVIOUSVERSION "No previous version."
     IDS_PROC_CANNOTCOMBINE  "Cannot combine commits now.\nMake sure you are viewing the log of your current branch and no filters are applied."
-    IDS_PROC_COMBINE_ERRORSTEP1 
+    IDS_PROC_COMBINE_ERRORSTEP1
                             "Could not reset to first commit (first step). Aborting..."
-    IDS_PROC_COMBINE_ERRORSTEP2 
+    IDS_PROC_COMBINE_ERRORSTEP2
                             "Could not reset to last commit (second step). Aborting..."
     IDS_REG_ERROR           "Error while reading/writing the registry key %1!s!\n%2!s!"
     IDS_PROC_COMBINE_ERRORRESETHEAD "Could not reset to original HEAD."
     IDS_PROC_DELETENREFS    "Do you really want to permanently delete the %d selected refs? It can NOT be recovered!"
     IDS_PROC_DELETEREF      """%s"" will be permanently deleted. It can NOT be recovered!\n\nDo you really want to continue?"
     IDS_DELETEBUTTON        "&Delete"
-    IDS_PROC_DELETEREMOTEBRANCH 
+    IDS_PROC_DELETEREMOTEBRANCH
                             "The branch ""%s"" is a remote-tracking branch which locally represents a remote branch.\n\nDo you really want to delete it?"
-    IDS_PROC_DELETEREMOTEBRANCH_LOCALREMOTE 
+    IDS_PROC_DELETEREMOTEBRANCH_LOCALREMOTE
                             "&Delete branch on remote && local remote-tracking branch"
     IDS_PROC_DELETEREMOTEBRANCH_LOCAL "Delete &local remote-tracking branch"
     IDS_PROC_DELETEALLSTASH "Do you really want to delete ALL %d stash?"
@@ -4633,13 +4664,13 @@ BEGIN
     IDS_STATGRAPH_LINEBUTTON_TT "Line Graph"
     IDS_STATGRAPH_BARSTACKEDBUTTON_TT "Stacked Bar Graph"
     IDS_STATGRAPH_BARBUTTON_TT "Bar Graph"
-    IDS_STATGRAPH_AUTHORSLIDER_TT 
+    IDS_STATGRAPH_AUTHORSLIDER_TT
                             "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_FILEDIFF_CHANGEDLISTINTRO 
+    IDS_FILEDIFF_CHANGEDLISTINTRO
                             "Changed files between %1!s!, %2!s! and %3!s!, %4!s!"
     IDS_FILEDIFF_CHANGEDLISTINTROROOT "Changed files between %1!s! and %2!s!"
 END
@@ -4660,21 +4691,21 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_SETTINGS_SHOWEXCLUDEDASNORMAL_TT 
+    IDS_SETTINGS_SHOWEXCLUDEDASNORMAL_TT
                             "If enabled, working tree folders which are excluded from\nshowing overlays still show the overlay for status 'normal'"
-    IDS_SETTINGS_SAVEDDATA_REPOLOGHIST_TT 
+    IDS_SETTINGS_SAVEDDATA_REPOLOGHIST_TT
                             "Clears cached logs from %ld repositories"
-    IDS_SETTINGS_SELECTFILESONCOMMIT_TT 
+    IDS_SETTINGS_SELECTFILESONCOMMIT_TT
                             "When enabled, the versioned items listed in the commit dialog are automatically selected"
-    IDS_SETTINGS_DIFFBYDOUBLECLICK_TT 
+    IDS_SETTINGS_DIFFBYDOUBLECLICK_TT
                             "If checked, double-clicking on a revision in the log list compares it with the previous revision"
-    IDS_SETTINGS_USESYSTEMLOCALEFORDATES_TT 
+    IDS_SETTINGS_USESYSTEMLOCALEFORDATES_TT
                             "Always use the system locale settings to show times and dates"
-    IDS_SETTINGS_USERECYCLEBIN_TT 
+    IDS_SETTINGS_USERECYCLEBIN_TT
                             "Moves the modified files to the recycle bin first before reverting"
-    IDS_SETTINGS_EXCLUDECONTEXTLIST_TT 
+    IDS_SETTINGS_EXCLUDECONTEXTLIST_TT
                             "A newline separated list of paths for which no context menu is shown.\nIf you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\nAn empty list will allow the context menu on all paths."
-    IDS_SETTINGS_CACHESHELLEXT_TT 
+    IDS_SETTINGS_CACHESHELLEXT_TT
                             "Status cache for only one folder, with full status and recursive overlays"
     IDS_SETTINGS_HOOKS_SELECTFOLDERPATH "Select folder to run script for"
     IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE "Select hook script file"
@@ -4687,16 +4718,16 @@ BEGIN
     IDS_SETTINGS_HOOKS_COMMANDLINECOL "Command Line"
     IDS_SETTINGS_HOOKS_WAITCOL "Wait"
     IDS_SETTINGS_HOOKS_SHOWCOL "Show/Hide"
-    IDS_SETTINGS_SHOWACTIONLOG_TT 
+    IDS_SETTINGS_SHOWACTIONLOG_TT
                             "Shows the action log file in the default text editor"
     IDS_SETTINGS_CLEARACTIONLOG_TT "Deletes the action log file"
-    IDS_SETTINGS_MAXACTIONLOGLINES_TT 
+    IDS_SETTINGS_MAXACTIONLOGLINES_TT
                             "The maximum number of action log lines to keep.\nAny lines added over this limit will remove the oldest lines from the file."
-    IDS_SETTINGS_HIDEMENUS_TT 
+    IDS_SETTINGS_HIDEMENUS_TT
                             "When activated, hold down the SHIFT key when right-clicking to get the TortoiseGit menus added to the context menu"
-    IDS_SETTINGS_OVERLAYINFO 
+    IDS_SETTINGS_OVERLAYINFO
                             "There are currently %d overlay handlers installed besides the ones Tortoise uses."
-    IDS_SETTINGS_OVERLAYINFO2 
+    IDS_SETTINGS_OVERLAYINFO2
                             "TortoiseGit will not show the following overlays: %s"
 END
 
@@ -4761,7 +4792,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_REPOSTATUS_EMPTYFILELIST 
+    IDS_REPOSTATUS_EMPTYFILELIST
                             "No files to show with the current setting.\nCheck one or more settings below to see unversioned, ignored and/or unmodified files."
 END
 
@@ -4775,7 +4806,7 @@ BEGIN
     IDS_B_T_NOTEMPTY        "Branch/Tag name must not be empty or is invalid."
     IDS_CHOOSE_REPOSITORY   "Choose Repository"
     IDS_ERR_NOT_REPOSITORY  """%s"" is not git repository"
-    IDS_ERR_ADDRESS_NO_EMPTY 
+    IDS_ERR_ADDRESS_NO_EMPTY
                             "Email Address To and CC can't empty at the same time."
     IDS_SVNACTION_SENDMAIL_START "Sending..."
     IDS_PROGRS_TITLE_SENDMAIL "Send Patch by Email"
@@ -4802,7 +4833,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_REBASE_FASTFORWARD_FMT 
+    IDS_REBASE_FASTFORWARD_FMT
                             "Branch ""%1!s!"" behind ""%2!s!""\n""%3!s!"" will fastforward to ""%4!s!"""
     IDS_REBASE_EQUAL_FMT    "No need to rebase\n""%1!s!"" equals ""%2!s!"""
     IDS_CLONE_DEPTH_TT      "Create a shallow clone with a history truncated to the specified number of revisions. A shallow repository has a number of limitations (you cannot clone or fetch from it, nor push from nor into it), but is adequate if you are only interested in the recent history of a large project with a long history, and would want to send in fixes as patches."
@@ -4835,7 +4866,7 @@ BEGIN
     IDS_PROC_AUTOGENERATEDBYGIT "<Auto Generated by Git>"
     IDS_PATCH               "Patch"
     IDS_LOG                 "Log"
-    IDS_PROC_APPLYPATCH_GITAMACTIVE 
+    IDS_PROC_APPLYPATCH_GITAMACTIVE
                             """git am"" is still in apply mode.\nDo you want to abort?"
     IDS_SUCCESS             "Success"
     IDS_FAIL                "Fail"
@@ -4849,7 +4880,7 @@ BEGIN
     IDS_OKBUTTON            "&OK"
     IDS_SKIPBUTTON          "&Skip"
     IDS_RESOLVEDBUTTON      "&Resolved"
-    IDS_PROC_APPLYPATCH_REBASEDIRFOUND 
+    IDS_PROC_APPLYPATCH_REBASEDIRFOUND
                             "previous rebase directory rebase-apply still exists but mbox given.\n\nDo you want to"
     IDS_PROC_PROGRESS_GITUNCLEANEXIT "git did not exit cleanly (exit code %d)"
     IDS_UPTODATE            "Already up to date."
@@ -4886,7 +4917,7 @@ STRINGTABLE
 BEGIN
     IDS_PROC_STARTREBASEBUTTON "Start Rebase"
     IDS_PROC_STARTREBASEFFBUTTON "Start (FastFwd)"
-    IDS_PROC_REBASE_EMPTYCOMMITMSG 
+    IDS_PROC_REBASE_EMPTYCOMMITMSG
                             "Found an empty commit message. You have to enter one or rebase cannot proceed."
     IDS_PROC_REBASE_ABORT   "Are you sure you want to abort the rebase process?"
     IDS_LASTCOMMIT          "Last Commit"
@@ -4894,13 +4925,13 @@ BEGIN
     IDS_DATELASTCOMMIT      "Date Last Commit"
     IDS_PROC_COMMIT_ADDSIGNOFFBUTTON "&Add it"
     IDS_PROC_COMMIT_NOADDSIGNOFFBUTTON "&Commit w/o"
-    IDS_PROC_COMMIT_NOSIGNOFFLINE 
+    IDS_PROC_COMMIT_NOSIGNOFFLINE
                             "You haven't entered your Signed-Off-By line!"
     IDS_PROC_COMMIT_PREPARECOMMIT "Preparing commit..."
     IDS_PROC_COMMIT_UPDATEINDEX "Updating index"
-    IDS_PROC_COMMIT_DETACHEDWARNING 
+    IDS_PROC_COMMIT_DETACHEDWARNING
                             "Current HEAD is detached, you are working on (no branch).\nDo you want to create a branch now?"
-    IDS_PROC_COMMIT_RESTOREFILES 
+    IDS_PROC_COMMIT_RESTOREFILES
                             "You marked some files as ""Restore after commit"".\nDo you want to restore them now? You might lose all changes to this file after marking it."
     IDS_PROC_COMMIT_RESTOREFILES_RESTORE "&Restore old state"
     IDS_PROC_COMMIT_RESTOREFILES_KEEP "&Keep current state"
@@ -4933,14 +4964,14 @@ BEGIN
     IDS_PROC_FAILEDSAVINGNOTES "Saving notes failed."
     IDS_PROC_FASTFORWARD    "Fast Forward"
     IDS_PROC_EVERYTHINGUPDATED "Everything updated."
-    IDS_PROC_SYNC_PULLWRONGBRANCH 
+    IDS_PROC_SYNC_PULLWRONGBRANCH
                             "Pull requires the selected local branch to be the current branch.\nDo you want to switch to the selected branch?"
     IDS_PROC_SYNC_REFRESHING "Refreshing..."
     IDS_PROC_SYNC_COMMITSAHEAD "%1!d! commits ahead ""%2!s!"""
     IDS_PROC_SYNC_WAINTINPUT "Waiting for input"
-    IDS_PROC_SYNC_PUSH_UNKNOWN 
+    IDS_PROC_SYNC_PUSH_UNKNOWN
                             "Don't know what will push because you enter URL"
-    IDS_PROC_SYNC_PUSH_UNKNOWNBRANCH 
+    IDS_PROC_SYNC_PUSH_UNKNOWNBRANCH
                             "Don't know what will push because unknown branch ""%s"""
     IDS_PROC_SYNC_INCOMMITS "In Commits"
     IDS_PROC_SYNC_INCHANGELIST "In Changelist"
@@ -4953,21 +4984,21 @@ STRINGTABLE
 BEGIN
     IDS_PROC_BROWSEREFS_DELETETAGS "Delete %d tags"
     IDS_PROCS_TITLE_GITREMOTESETTINGS "Git Remote Settings"
-    IDS_PROC_BROWSEREFS_RENAMEONLYBRANCHES 
+    IDS_PROC_BROWSEREFS_RENAMEONLYBRANCHES
                             "At the moment, you can only rename branches."
-    IDS_PROC_BROWSEREFS_NOCHANGEOFTYPE 
+    IDS_PROC_BROWSEREFS_NOCHANGEOFTYPE
                             "You cannot change the type of this ref with a rename."
-    IDS_PROC_BROWSEREFS_WARNINGUNMERGED 
+    IDS_PROC_BROWSEREFS_WARNINGUNMERGED
                             "This branch is not fully merged into HEAD."
-    IDS_PROC_BROWSEREFS_WARNINGNOMERGECHECK 
+    IDS_PROC_BROWSEREFS_WARNINGNOMERGECHECK
                             "It has not been checked if these branches have been fully merged into HEAD."
-    IDS_PROC_BROWSEREFS_WARNINGDELETEREMOTEBRANCHES 
+    IDS_PROC_BROWSEREFS_WARNINGDELETEREMOTEBRANCHES
                             "This action will remove the branches on the remote."
     IDS_PROC_NOMSYSGIT      "No git.exe found.\n\nTortoiseGit requires a git.exe for its operations (e.g., such as provided by the Git for Windows package)."
     IDS_PROC_SETMSYSGITPATH "&Set Git path"
     IDS_PROC_GOTOMSYSGITWEBSITE "&Open Git for Windows WebSite"
     IDS_PROC_OLDMSYSGIT     "You have an old unsupported version of Git installed.\n\nYou should consider an upgrade to %s."
-    IDS_PROC_NOTSHOWAGAINIGNORE 
+    IDS_PROC_NOTSHOWAGAINIGNORE
                             "Do &not show me this warning again (if Ignore is selected)"
     IDS_PROC_EDITLOCALGITCONFIG "&Edit .git/config"
     IDS_PROC_EDITGLOBALGITCONFIG "Edit &global .gitconfig"
@@ -4979,37 +5010,37 @@ STRINGTABLE
 BEGIN
     IDS_PROC_STASHPOPFAILED "Stash POP failed!"
     IDS_PROC_STASHPOPFAILEDCONFLICTS "Stash POP failed, there are conflicts"
-    IDS_PROC_STASHAPPLYFAILEDCONFLICTS 
+    IDS_PROC_STASHAPPLYFAILEDCONFLICTS
                             "Stash Apply failed, there are conflicts"
     IDS_PROC_CREATED        "Created"
-    IDS_PROC_NEWBRANCHTAG_TRACK_TT 
+    IDS_PROC_NEWBRANCHTAG_TRACK_TT
                             "If checked --track is passed to git, if unchecked --no-track is passed to git, else neither --track nor --no-track is passed to git (see help)."
     IDS_STATUSLIST_FROM     "(from %s)"
     IDS_LASTAUTHOR          "Last Author"
     IDS_B_T_NOT_UNIQUE      "The entered source ref is ambiguous.\nYou have to make it unique (e.g. by adding ""refs/heads/"" as a prefix for branches or ""refs/tags/"" for tags)!"
     IDS_B_EXISTS            "A branch with this name already exists."
     IDS_T_EXISTS            "A tag with this name already exists."
-    IDS_B_DELETEORDIFFERENTNAME 
+    IDS_B_DELETEORDIFFERENTNAME
                             "Delete the existing branch or use a different name."
-    IDS_B_T_DIFFERENTNAMEORFORCE 
+    IDS_B_T_DIFFERENTNAMEORFORCE
                             "Use a different name or use the ""Force"" option to overwrite it."
-    IDS_B_DIFFERENTNAMEOROVERRIDE 
+    IDS_B_DIFFERENTNAMEOROVERRIDE
                             "Use a different name or use the ""Override branch"" option."
-    IDS_T_SAMEBRANCHNAMEEXISTS 
+    IDS_T_SAMEBRANCHNAMEEXISTS
                             "A branch with the same name as your entered tag name already exists (so the short ref is ambiguous).\nThis can cause problems so you should avoid it."
     IDS_B_SAMETAGNAMEEXISTS "A tag with the same name as your entered branch name already exists (so the short ref is ambiguous).\nThis can cause problems so you should avoid it."
-    IDS_SETTINGS_ABBREVIATERENAMINGS_TT 
+    IDS_SETTINGS_ABBREVIATERENAMINGS_TT
                             "List a renamed file as ""long/path/{to => for}/file.txt"" instead of ""long/path/for/file.txt (from long/path/to/file.txt)""."
 END
 
 STRINGTABLE
 BEGIN
     IDS_PROC_PUSHFETCH_ALLREMOTES "- all -"
-    IDS_PROC_SYNC_NOFASTFORWARD 
+    IDS_PROC_SYNC_NOFASTFORWARD
                             "The local branch ""%1!s!"" does not fast-forward to the remote branch ""%2!s!""."
-    IDS_PUSHDLG_PUSHBRANCH_TT 
+    IDS_PUSHDLG_PUSHBRANCH_TT
                             "Sets the remote branch as the ""pushbranch"" for the selected local branch."
-    IDS_PUSHDLG_PUSHREMOTE_TT 
+    IDS_PUSHDLG_PUSHREMOTE_TT
                             "Sets the remote as the ""pushremote"" for the selected local branch."
     IDS_STATUSLIST_COLLASTMODIFIED "Last Modified"
     IDS_STATUSLIST_COLSIZE  "Size"
@@ -5019,11 +5050,11 @@ BEGIN
     IDS_PROC_BROWSEREFS_EDITDESCRIPTION "Edit description"
     IDS_PROC_SYNC_CONFLICTS "Conflicts"
     IDS_STASHBUTTON         "&Stash"
-    IDS_SETTINGS_FETCH_ADDEDREMOTE 
+    IDS_SETTINGS_FETCH_ADDEDREMOTE
                             "Do you want to fetch remote branches from the newly added remote?"
-    IDS_STASHSAVE_INCLUDEUNTRACKED 
+    IDS_STASHSAVE_INCLUDEUNTRACKED
                             "You have checked ""include untracked"".\nThis includes a ""git clean -fd"" call, so ignored files/directories are removed w/o using recycle bin."
-    IDS_PROC_NOTSHOWAGAINCONTINUE 
+    IDS_PROC_NOTSHOWAGAINCONTINUE
                             "Do &not show me this warning again (if Continue is selected)"
     IDS_PROC_LOG_JUMPNOTFOUND "No more revisions found."
 END
@@ -5038,26 +5069,26 @@ BEGIN
     IDS_ERR_EMPTYDIFF       "No differences found!"
     IDS_PROC_TAG_FF         "Tag (FF)"
     IDS_GITVER_REQUIRED     "%1!s! requires Git >= %2!s!"
-    IDS_SETTINGS_SYMBOLIZEREFNAMES_TT 
+    IDS_SETTINGS_SYMBOLIZEREFNAMES_TT
                             "Show symbols on ref labels to substitute part of the ref names"
     IDS_PROC_SYNC_PUSHNOTES "Push notes"
     IDS_PROC_REPOCREATED    "Initialized empty Git repository in %s."
     IDS_PROC_BROWSEREFS_DELETEALLTAGS "Delete all tags"
-    IDS_SETTINGS_ENABLELOGCACHE_TT 
+    IDS_SETTINGS_ENABLELOGCACHE_TT
                             "Enable loading/saving log cache files (tortoisegit.data, tortoisegit.index)"
     IDS_LOG_FILTER_EMAILS   "Emails"
     IDS_CARE_SUBMODULE_CHANGES "take care of submodule changes"
-    IDS_STATUSLIST_WARN_MAXDIFF 
+    IDS_STATUSLIST_WARN_MAXDIFF
                             "You have selected %d items to show the diff for.\nFor every of these items a new instance of the diff viewer will be started.\nDo you really want to show the diff for so many items at once?"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_PROC_CONFIRMKILLPROCESS 
+    IDS_PROC_CONFIRMKILLPROCESS
                             "The process is still running.\nAre you sure to abort?"
-    IDS_SETTINGS_CONFIRMKILLPROCESS_TT 
+    IDS_SETTINGS_CONFIRMKILLPROCESS_TT
                             "When closing a progress dialog with a running git process, ask for confirmation before killing it"
-    IDS_SYNCDIALOGRANDOMPOS_TT 
+    IDS_SYNCDIALOGRANDOMPOS_TT
                             "Randomize the startup position of Sync Dialog. This prevents from pressing the Pull button of same dialog"
     IDS_CONFIG_LOCAL        "Local"
     IDS_CONFIG_PROJECT      "Project"
@@ -5096,25 +5127,25 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_PROC_COPY_REPOSITORY 
+    IDS_PROC_COPY_REPOSITORY
                             """%s"" contains a git repository. It will not work as a submodule out of the box.\nDo you want to delete the .git-entry and add all files to the top repository or keep it as a separate repository in a subdirectory?"
     IDS_HIERARCHICALCONFIG  "Git uses the concept of a hierarchical configuration.\nI.e. there are multiple levels; settings in higher levels override values in lower levels.\nThe ""Effective"" tab shows you the effective values for the current scope (read-only).\nSelect any level to see the values stored there.\nIn order to change settings select a level, enter the values and select where to store to."
     IDS_OFFLINEMODE         "System in offline mode. Check Internet Explorer."
-    IDS_CHECKNEWER_NETERROR_FORMAT 
+    IDS_CHECKNEWER_NETERROR_FORMAT
                             "Could not check for a newer version! %1!s! (Error code: 0x%2!08X!)"
     IDS_PROC_BRANCH_FF      "Branch (FF)"
     IDS_PROC_LOG_LOCAL_BRANCHES "<Local Branches>"
     IDS_PROC_LOG_SELECT_LOCAL_BRANCHES "All local branches"
-    IDS_STATUSLIST_GROUP_IGNORELOCALCHANGES 
+    IDS_STATUSLIST_GROUP_IGNORELOCALCHANGES
                             "Local changes ignored (assumed valid/unchanged or skip worktree flagged files)"
-    IDS_PROC_UNSET_IGNORELOCALCHANGES 
+    IDS_PROC_UNSET_IGNORELOCALCHANGES
                             "Do you really want to unflag the selected file(s) as skip-worktree or assume-unchanged?"
-    IDS_STATUSLIST_UNSETIGNORELOCALCHANGES 
+    IDS_STATUSLIST_UNSETIGNORELOCALCHANGES
                             "Unflag as skip-worktree and assume-unchanged"
     IDS_LOG_FILTER_TOGGLE   "Toggle filters"
-    IDS_WARN_GITINIT_SPECIALFOLDER 
+    IDS_WARN_GITINIT_SPECIALFOLDER
                             "The target folder \n%s\nis a special folder and is not supposed to be a repository root!\nAre you sure you want to initialize a git repository inside that folder?"
-    IDS_SAMPLEBUGTRAQTESTMSG 
+    IDS_SAMPLEBUGTRAQTESTMSG
                             "Sample log message to test the bugtraq: regex strings.\n\nTesting mentions of issues inside a text: Mention single issue #55. Mention issues #77, #78, and #79. Mention more issues #123, #124 and #125 and some more separate ones: Issue #45, issue #46 and issue #47.\n\n\nUpdate issue #101\nFixes issue #202\nFixed issue #123\nResolves issue #88.\nCloses issue #99.\n"
     IDS_REFBROWSE_INFO      "Showing %1!d! ref(s), %2!d! ref(s) selected"
     IDS_SWITCH_WITH_MERGE   "Checkout with merge"
@@ -5124,7 +5155,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_DELETEREMOTETAGON   "Delete remote tags on ""%s""..."
-    IDS_B_T_REMOTE_NAME_COLLIDE 
+    IDS_B_T_REMOTE_NAME_COLLIDE
                             "This remote name collides with fetch refspec of other remotes\nPlease use another name"
     IDS_CHANGETYPE          "Change type"
     IDS_OLDHASH             "Old hash"
@@ -5148,7 +5179,7 @@ BEGIN
     IDS_CLEAN_NO_RECYCLEBIN "Clean permanently"
     IDS_FORCE_WITH_LEASE_TT "Force push only if the remote reference points to the same commit as the remote tracking branch.\nThis can cause the remote repository to lose commits; use it with care.\nThis option corresponds to the --force-with-lease git option."
     IDS_FORCE_TT            "Force push to the selected remote reference and override it without any safety checks.\nThis can cause the remote repository to lose unseen commits; use it with care.\nThis option corresponds to the --force git option."
-    IDS_PROC_REBASE_CONTINUE_NOTCLEAN 
+    IDS_PROC_REBASE_CONTINUE_NOTCLEAN
                             "The working tree is not clean and contains unstaged changes.\nReview and commit the changes?"
     IDS_PROC_COMMIT_SUPERPROJECT "Commit super project"
     IDS_LOG_NOT_VISIBLE     "Commit %s is NOT visible right now."
@@ -5158,26 +5189,26 @@ BEGIN
     IDS_ALLTAGS             "All tags"
     IDS_ALLREFS             "All refs"
     IDS_SETTINGS_SHOWDESCRIBE_TT "Show describe in log dialog"
-    IDS_SETTINGS_DESCRIBESTRATEGY_TT 
+    IDS_SETTINGS_DESCRIBESTRATEGY_TT
                             "Whether to reference only annotated tags, all tags or all refs"
-    IDS_SETTINGS_DESCRIBEABBREVIATEDSIZE_TT 
+    IDS_SETTINGS_DESCRIBEABBREVIATEDSIZE_TT
                             "Number of characters to show in the abbreviated hash part"
-    IDS_SETTINGS_DESCRIBEALWAYSLONG_TT 
+    IDS_SETTINGS_DESCRIBEALWAYSLONG_TT
                             "Show long format even if a tag is exactly on that commit"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_WARN_DELETE_ONE_FROM_INDEX 
+    IDS_WARN_DELETE_ONE_FROM_INDEX
                             "Do you really want to remove ""%s"" from the index?"
     IDS_REMOVEBUTTON        "&Remove"
     IDS_LAST_N_WEEKS        "Last %s week(s)"
     IDS_LAST_N_MONTHS       "Last %s month(s)"
     IDS_LAST_N_YEARS        "Last %s year(s)"
-    IDS_REBASE_BRANCH_UNCHANGED 
+    IDS_REBASE_BRANCH_UNCHANGED
                             "The remote branch has not changed.\n\nOpen the rebase dialog anyway?"
     IDS_LAST_N_COMMITS      "Last %s commit(s)"
-    IDS_DEFAULT_NUMBER_OF_TT 
+    IDS_DEFAULT_NUMBER_OF_TT
                             "The ""number of"" value for those ""Last N"" options.\nShould be > 0"
     IDS_DEFAULT_SCALE_TT    "The default limitation of log messages when you open Log Message dialog.\nNote: For showing all commits in Log Message dialog,\nyou can right click on ""FROM"" date control, then click ""No limitation"" item."
     IDS_NO_LIMIT            "No limitation"
@@ -5194,20 +5225,20 @@ BEGIN
     IDS_GLOBAL_GCM          "manager - current Windows user"
     IDS_SYSTEM_GCM          "manager - all Windows users"
     IDS_COMMIT_MERGE_HINT   "The commit you are composing is a special commit. It is a merge commit and, thus contains your changes as well as the changes of a merged branch.\n\nYou should NOT uncheck files unless you know what you are doing.\n\nWhen you merge changes, conflicts can arise that must be solved manually (i.e., you need to integrate your changes into a file which was also modified on another branch).\n\nSee help for more information."
-    IDS_REBASE_PRESERVEMERGES_TT 
+    IDS_REBASE_PRESERVEMERGES_TT
                             "This preserves merge commits, however, it has known bugs as re-ordering commits is not working properly (same limitation as for vanilla git rebase), see help."
     IDS_PROC_LOG_BASIC_REFS "<Basic Refs>"
     IDS_PROC_LOG_SELECT_BASIC_REFS "All basic refs"
-    IDS_CHERRYPICK_MERGECOMMIT 
+    IDS_CHERRYPICK_MERGECOMMIT
                             """%1!s!"" - ""%2!s!""\nis a merge commit.\n\nWhich parent do you want to pick?"
     IDS_COMMIT_COMMIT       "C&ommit"
     IDS_COMMIT_RECOMMIT     "&ReCommit"
     IDS_COMMIT_COMMITPUSH   "Commit && &Push"
     IDS_DROPONESTASH        "Drop &one stash"
-    IDS_PROC_PULL_EMPTYBRANCH 
+    IDS_PROC_PULL_EMPTYBRANCH
                             "You asked to pull, but did not specify a remote branch."
     IDS_PROC_SYNC_FETCHALL  "Fetch all refs"
-    IDS_NOTYET_SETTRACKEDBRANCH 
+    IDS_NOTYET_SETTRACKEDBRANCH
                             "For the current branch ""%1!s!"" no tracked branch is configured.\nDo you want to set the selected branch ""%2!s!"" as tracked branch?\nThis will automatically select it for push and pull in the future."
     IDS_PROC_DIFF_BASE      "Base"
     IDS_REMOVESTALEBUTTON   "Remove stale lock file"
@@ -5220,10 +5251,10 @@ BEGIN
     IDS_FIRSTSTART_USERTITLE "Configure user information"
     IDS_SEEMANUALGITEXEPATH "Check out the help file for ""Git.exe Path""."
     IDS_ERR_GITDLLMISSING   "Could not start git.exe. A dynamic library (dll) is missing.\nYou might need to specify an extra PATH.\nCheck help file for ""Extra PATH""."
-    IDS_ERR_GITNOVALIDOUTPUT 
+    IDS_ERR_GITNOVALIDOUTPUT
                             "Could not get read version information from git.exe.\nGot: ""%s"""
     IDS_ERR_GITNEEDHACKS    "Could not find ""msysgit"" or ""windows"" in version string of git.exe.\nIf you are using git of the Cygwin or MSYS2 environment you need to enable special hacks.\nFor more information see the help file for the keyword ""Cygwin Git"" or ""MSYS2 Git""."
-    IDS_ERR_GITUNNEEDEDHACKS 
+    IDS_ERR_GITUNNEEDEDHACKS
                             "Found ""msysgit"" or ""windows"" in version string of git.exe, however, you have git.exe hacks enabled. These hacks must be disabled for proper operation with Git for Windows!\nYou can find more information in the help file for the keyword ""Cygwin Git"" or ""MSYS2 Git""."
     IDS_ERR_GITCALLFAILED   "Calling git.exe failed (exit code: %d). Please check the git.exe path."
     IDS_GITEXEFILEFILTER    "git.exe|git.exe||"
@@ -5231,15 +5262,15 @@ BEGIN
     IDS_HINTLASTMESSAGES    "Hint: Recently used commit messages are available using the context menu of the text field."
     IDS_FIRSTSTART_AUTHENTICATIONTITLE "Authentication and credential store"
     IDS_FIRSTSTART_SSHHINT  "TortoiseGitPlink is the recommended as SSH client. If you don't have a key pair yet, you should generate one. Keep the private one in a safe place and set up the public key on your hosting platform. Use the PuTTY authentication agent for caching the password (done automatically if a PuTTY key is configured for a remote). For advanced tips & tricks see our <a id=""manual"">manual</a> and <a id=""sshfaq"">FAQ</a>."
-    IDS_FIRSTSTART_LANGUAGEHINT1 
+    IDS_FIRSTSTART_LANGUAGEHINT1
                             "TortoiseGit can be localized using language packs."
-    IDS_FIRSTSTART_LANGUAGEHINT2 
+    IDS_FIRSTSTART_LANGUAGEHINT2
                             "In the following combobox you can find all installed language packs which can be used by this version of TortoiseGit."
 END
 
 STRINGTABLE
 BEGIN
-    IDS_FIRSTSTART_LANGUAGEHINT3 
+    IDS_FIRSTSTART_LANGUAGEHINT3
                             "If you want to use a translated version of TortoiseGit and your language is missing, <a id=""download"">download</a> and install a matching language pack now and hit ""Refresh"" before continuing."
     IDS_PROC_LOG_SHOWUNVERSIONED "Show &Unversioned Files"
     IDS_STATUSLIST_CONTEXT_COPYFILENAMES "file/foldernames"
@@ -5292,7 +5323,7 @@ BEGIN
     IDS_PRUNE_OPTION_GUIDE  "You can configure it for all remotes or global on the Git settings page."
     IDS_PROC_COMMIT_PARTIAL_STAGING "Partial Staging>>"
     IDS_TIPSTAGINGMODE      "While in this mode, the checkbox for each file reflects its staging status:\n- Checked means all the changes for the file are staged\n- Unchecked means all the changes for the file are unstaged\n- A gray square means that only some changes for the file are staged\n\nClicking the checkboxes immediately stages or unstages the whole file.\n\nYou can also click ""Partial Staging"" or ""Partial Unstaging"". A window shows up where you can select hunks or lines in the currently selected file and stage or unstage them.\n\nPlease note that, for performance reasons, the file's group (Modified Files, Not Versioned Files...) and status (Added, Modified, Unknown...) are not updated when clicking its checkbox. If you want to see the updated group and status, you can trigger a full refresh by pressing F5."
-    IDS_ERROR_PARTIALSTAGING 
+    IDS_ERROR_PARTIALSTAGING
                             "Invalid selection.\n\nIf this is a single-line file that has been modified, you must click the checkbox to stage or unstage the whole file."
     IDS_PROC_COMMIT_HIDE_UNSTAGING "Hide Unstaging<<"
     IDS_PROC_COMMIT_PARTIAL_UNSTAGING "Partial Unstaging>>"
@@ -5328,18 +5359,18 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE 
+1 TEXTINCLUDE
 BEGIN
     "../TortoiseProc/resource.h\0"
 END
 
-2 TEXTINCLUDE 
+2 TEXTINCLUDE
 BEGIN
     "#include <afxres.h>\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE 
+3 TEXTINCLUDE
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"

@@ -42,4 +42,6 @@ protected:
 	virtual void OnOK() override;
 
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnLbnSelchangeList2();
 };

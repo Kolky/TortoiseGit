@@ -1,6 +1,6 @@
 ﻿//{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\TortoiseGit\src\Resources\TortoiseProcENG.rc
+// Used by C:\Users\Alexander\source\repos\TortoiseGit\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDD_SETTINGSPROXY               102
@@ -1674,6 +1674,9 @@
 #define IDC_WORKTREE_LIST               1859
 #define IDC_WINDOWSCREDMGR              1859
 #define IDS_LOG_FILTER_REGEX_TT         1860
+#define IDC_MFCCOLORBUTTON1             1860
+#define IDC_EDIT1                       1863
+#define IDC_LIST2                       1864
 #define IDS_LOG_REVERTTOREV_CONFIRM     1890
 #define IDS_LOG_REVERTREV_ERROR         1891
 #define IDS_LOG_STOPONCOPY_HINT         1892
@@ -2142,9 +2145,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        371
+#define _APS_NEXT_RESOURCE_VALUE        372
 #define _APS_NEXT_COMMAND_VALUE         32883
-#define _APS_NEXT_CONTROL_VALUE         1860
+#define _APS_NEXT_CONTROL_VALUE         1865
 #define _APS_NEXT_SYMED_VALUE           201
 #endif
 #endif

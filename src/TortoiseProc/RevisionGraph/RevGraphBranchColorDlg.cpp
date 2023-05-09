@@ -24,6 +24,10 @@
 #include "Git.h"
 #include "BrowseRefsDlg.h"
 #include "StringUtils.h"
+#include <gdiplus.h>
+
+#include "nlohmann/json.hpp"
+using json = nlohmann::json;
 
 IMPLEMENT_DYNAMIC(CRevGraphBranchColorDlg, CStandAloneDialog)
 
@@ -42,6 +46,7 @@ void CRevGraphBranchColorDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CRevGraphBranchColorDlg, CStandAloneDialog)
+	ON_LBN_SELCHANGE(IDC_LIST2, &CRevGraphBranchColorDlg::OnLbnSelchangeList2)
 END_MESSAGE_MAP()
 
 BOOL CRevGraphBranchColorDlg::OnInitDialog()
@@ -52,5 +57,33 @@ BOOL CRevGraphBranchColorDlg::OnInitDialog()
 
 void CRevGraphBranchColorDlg::OnOK()
 {
+	Gdiplus::Color color(128, 128, 128);
+
+	CString branchname = L"Features";
+
+	auto branchObj = json::object();
+	branchObj["branchPattern"] = branchname.GetString();
+	branchObj["branchColor"] = color.ToCOLORREF();
+
+	auto result = json::array();
+	result.push_back(branchObj);
+
+	std::string jsonStr = result.dump();
+
+	CString tempFile = L"test.json";
+	FILE* fp = nullptr;
+	_wfopen_s(&fp, tempFile, L"w+b");
+	if (!fp)
+		return;
+
+	fwrite(jsonStr.c_str(), sizeof(char), jsonStr.length(), fp);
+	fclose(fp);
+
 	CStandAloneDialog::OnOK();
+}
+
+
+void CRevGraphBranchColorDlg::OnLbnSelchangeList2()
+{
+	// TODO: Add your control notification handler code here
 }
